@@ -1,0 +1,6 @@
+{
+  "name": "Shiv Ganesh Ita Udhog",
+  "description": "Official website for Shiv Ganesh Ita Udhog, established in 2080 BS in Sukhupur-3, Siraha, Nepal. Premium high-strength clay bricks manufacturing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

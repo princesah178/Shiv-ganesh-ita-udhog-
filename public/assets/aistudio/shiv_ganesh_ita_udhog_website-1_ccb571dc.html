@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="SHIV GANESH ITA UDHOG manufactures strong, quality bricks in Sukhupur-3, Siraha, Nepal. Contact us for product details and inquiries.">
+  <title>SHIV GANESH ITA UDHOG | Strong & Quality Bricks</title>
+  <style>
+    :root {
+      --site-primary: #a83225;
+      --site-secondary: #202020;
+      --site-background: #f6f3ef;
+      --site-on-primary: #ffffff;
+      --site-on-secondary: #ffffff;
+      --site-on-background: #24211f;
+      --site-font-body: Inter, "Segoe UI", Arial, sans-serif;
+      --site-font-heading: "Arial Narrow", "Segoe UI", sans-serif;
+      --site-heading-scale: 1;
+      --site-spacing-scale: 1;
+      --site-radius-scale: 1;
+      --site-decoration-opacity: 1;
+      --gold: #d5a64c;
+      --muted: #706a64;
+      --line: #e6ded6;
+      --surface: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--site-font-body);
+      color: var(--site-on-background);
+      background: light-dark(var(--site-background), #171717);
+      line-height: 1.6;
+    }
+    #app {
+      min-height: 100vh;
+      width: 100%;
+      border-radius: 0;
+      background-color: var(--site-background);
+      color: var(--site-on-background);
+      overflow: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .topline { background: #111; color: #ddd; font-size: 12px; padding: 8px 0; }
+    .topline-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .topline a { color:#f0c979; }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:78px; gap:24px; }
+    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark {
+      width:45px; height:45px; flex:0 0 45px; display:grid; place-items:center;
+      background:var(--site-primary); color:#fff; font-weight:900; font-size:17px;
+      border-radius:calc(9px * var(--site-radius-scale)); box-shadow:4px 4px 0 var(--gold);
+    }
+    .brand-name { font-weight:900; letter-spacing:.045em; line-height:1.15; font-size:15px; }
+    .brand-sub { color:var(--muted); font-size:10px; letter-spacing:.16em; text-transform:uppercase; margin-top:4px; }
+    .nav-links { display:flex; align-items:center; gap:25px; font-size:13px; font-weight:700; }
+    .nav-links a { transition:color .2s ease; }
+    .nav-links a:hover { color:var(--site-primary); }
+    .nav-cta, .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:9px;
+      padding:13px 20px; border-radius:calc(5px * var(--site-radius-scale));
+      font-weight:800; font-size:13px; border:1px solid transparent; cursor:pointer;
+      transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .nav-cta, .btn-primary { background:var(--site-primary); color:#fff; }
+    .btn-dark { background:#202020; color:#fff; }
+    .btn-outline { border-color:rgba(255,255,255,.65); color:#fff; }
+    .btn:hover, .nav-cta:hover { transform:translateY(-3px); box-shadow:0 10px 24px #0002; }
+    .menu-toggle { display:none; border:0; background:#f2ece7; border-radius:5px; padding:10px 12px; font-size:21px; }
+    .hero {
+      min-height:650px; display:flex; align-items:center; position:relative; color:#fff;
+      background:
+        linear-gradient(90deg, rgba(14,13,12,.91) 0%, rgba(14,13,12,.73) 48%, rgba(14,13,12,.22) 100%),
+        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=85") center/cover;
+    }
+    .hero:after { content:""; position:absolute; inset:auto 0 0; height:8px; background:var(--gold); opacity:var(--site-decoration-opacity); }
+    .hero-content { position:relative; z-index:1; max-width:700px; padding:90px 0 105px; animation:rise .8s ease both; }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; color:#f0c979; font-size:11px; font-weight:900; letter-spacing:.2em; text-transform:uppercase; }
+    .eyebrow:before { content:""; width:30px; height:2px; background:var(--gold); }
+    h1,h2,h3 { font-family:var(--site-font-heading); line-height:1.08; }
+    h1 { font-size:clamp(42px, 7vw, 76px); letter-spacing:-.035em; margin:22px 0; text-transform:uppercase; }
+    h1 span { color:#e7b95f; }
+    .hero p { max-width:550px; color:#e5e1dc; font-size:17px; margin:0 0 30px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .hero-note { display:flex; align-items:center; gap:12px; margin-top:55px; color:#e7e1d8; font-size:12px; letter-spacing:.06em; }
+    .hero-note strong { color:#fff; }
+    .hero-note i { width:6px; height:6px; background:var(--gold); border-radius:50%; }
+    .section { padding:92px 0; }
+    .section-head { max-width:680px; margin-bottom:42px; }
+    .section-kicker { color:var(--site-primary); font-size:11px; font-weight:900; letter-spacing:.19em; text-transform:uppercase; }
+    h2 { font-size:clamp(34px, 4.5vw, 52px); margin:13px 0 16px; letter-spacing:-.03em; }
+    .section-head p, .about-copy p { color:var(--muted); margin:0; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:64px; }
+    .about-photo { position:relative; min-height:450px; }
+    .about-photo img { height:450px; border-radius:calc(7px * var(--site-radius-scale)); }
+    .photo-label { position:absolute; right:-18px; bottom:25px; background:var(--gold); color:#211b12; padding:18px 22px; font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; box-shadow:0 12px 30px #0002; }
+    .about-copy h2 { margin-top:14px; }
+    .feature-list { display:grid; grid-template-columns:1fr 1fr; gap:18px 20px; margin-top:30px; }
+    .feature { display:flex; gap:12px; align-items:flex-start; font-size:13px; font-weight:750; }
+    .feature-icon { width:32px; height:32px; flex:0 0 32px; display:grid; place-items:center; color:var(--site-primary); background:#f7e9e5; border-radius:5px; }
+    .products { background:#eee8e1; }
+    .product-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .product-card { background:#fff; border:1px solid #e8dfd6; border-radius:calc(7px * var(--site-radius-scale)); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; }
+    .product-card:hover { transform:translateY(-7px); box-shadow:0 18px 38px #30201618; }
+    .product-card img { height:225px; }
+    .product-body { padding:22px; }
+    .product-body h3 { font-size:23px; margin:0 0 9px; }
+    .product-body p { color:var(--muted); font-size:13px; margin:0 0 18px; }
+    .text-link { color:var(--site-primary); font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .gallery-grid { display:grid; grid-template-columns:1.25fr 1fr 1fr; grid-template-rows:210px 210px; gap:14px; }
+    .gallery-item { position:relative; overflow:hidden; border-radius:5px; background:#ddd; }
+    .gallery-item:first-child { grid-row:span 2; }
+    .gallery-item img { height:100%; transition:transform .5s ease; }
+    .gallery-item:hover img { transform:scale(1.06); }
+    .gallery-caption { position:absolute; left:0; right:0; bottom:0; padding:35px 16px 14px; color:#fff; font-weight:800; font-size:13px; background:linear-gradient(transparent,#000b); }
+    .trust-band { background:#202020; color:#fff; padding:48px 0; }
+    .trust-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+    .trust-item { border-left:2px solid var(--gold); padding-left:20px; }
+    .trust-item strong { display:block; font-size:19px; margin-bottom:5px; }
+    .trust-item span { color:#bdb8b2; font-size:13px; }
+    .contact { background:#f2ece5; }
+    .contact-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:50px; align-items:start; }
+    .contact-card { background:#202020; color:#fff; padding:32px; border-radius:calc(7px * var(--site-radius-scale)); }
+    .contact-card h3 { font-size:27px; margin:0 0 22px; }
+    .contact-row { display:flex; gap:14px; padding:15px 0; border-bottom:1px solid #ffffff20; }
+    .contact-row:last-of-type { border:0; }
+    .contact-symbol { color:var(--gold); font-size:18px; width:24px; }
+    .contact-row small { display:block; color:#aaa; font-size:11px; text-transform:uppercase; letter-spacing:.1em; }
+    .contact-row strong { font-size:14px; }
+    .contact-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .contact-form { background:#fff; padding:32px; border:1px solid var(--line); border-radius:calc(7px * var(--site-radius-scale)); }
+    .contact-form h3 { font-size:28px; margin:0 0 8px; }
+    .contact-form > p { color:var(--muted); font-size:13px; margin:0 0 22px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+    label { display:block; font-size:11px; font-weight:800; margin-bottom:6px; color:#4d4741; }
+    input, textarea, select { width:100%; border:1px solid #ded6ce; border-radius:4px; padding:13px; font:inherit; font-size:13px; background:#fff; color:#222; }
+    textarea { min-height:110px; resize:vertical; }
+    .field { margin-bottom:15px; }
+    .map-wrap { margin-top:28px; border:1px solid var(--line); background:#fff; padding:8px; border-radius:6px; }
+    .map-wrap iframe { width:100%; height:300px; border:0; display:block; }
+    footer { background:#141414; color:#fff; padding:48px 0 22px; }
+    .footer-grid { display:grid; grid-template-columns:1.4fr .8fr 1fr; gap:40px; padding-bottom:35px; }
+    footer p, footer li { color:#aaa; font-size:13px; }
+    footer h3 { font-size:18px; margin:0 0 15px; }
+    footer ul { list-style:none; padding:0; margin:0; display:grid; gap:9px; }
+    .socials { display:flex; gap:10px; margin-top:18px; }
+    .socials a { display:grid; place-items:center; width:38px; height:38px; border:1px solid #555; border-radius:50%; font-size:12px; font-weight:900; transition:.2s; }
+    .socials a:hover { background:var(--site-primary); border-color:var(--site-primary); }
+    .copyright { border-top:1px solid #ffffff20; padding-top:18px; color:#888; font-size:11px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .float-wa { position:fixed; z-index:30; right:20px; bottom:20px; width:58px; height:58px; display:grid; place-items:center; background:#20bd66; color:#fff; border-radius:50%; font-size:25px; box-shadow:0 8px 24px #0003; transition:transform .2s; }
+    .float-wa:hover { transform:scale(1.08); }
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    @keyframes rise { from {opacity:0; transform:translateY(24px)} to {opacity:1; transform:none} }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation:none !important; transition:none !important; } .reveal {opacity:1; transform:none;} }
+    @media (max-width:850px) {
+      .nav-links { display:none; position:absolute; top:78px; left:0; right:0; padding:22px; background:#fff; border-bottom:1px solid var(--line); flex-direction:column; align-items:flex-start; gap:18px; }
+      .nav-links.open { display:flex; }
+      .menu-toggle { display:block; }
+      .nav-cta { display:none; }
+      .about-grid, .contact-grid { grid-template-columns:1fr; gap:35px; }
+      .product-grid { grid-template-columns:repeat(2,1fr); }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+      .footer-grid > :first-child { grid-column:1/-1; }
+    }
+    @media (max-width:560px) {
+      .container { width:min(100% - 30px, 1160px); }
+      .topline-inner { justify-content:center; }
+      .hero { min-height:600px; background-position:58% center; }
+      .hero-content { padding:78px 0 90px; }
+      .hero p { font-size:15px; }
+      .section { padding:68px 0; }
+      .about-photo, .about-photo img { min-height:320px; height:320px; }
+      .photo-label { right:8px; bottom:15px; }
+      .feature-list, .product-grid, .trust-grid, .form-grid, .footer-grid { grid-template-columns:1fr; }
+      .footer-grid > :first-child { grid-column:auto; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:190px 150px 150px; }
+      .gallery-item:first-child { grid-column:span 2; grid-row:auto; }
+      .contact-card, .contact-form { padding:24px; }
+      .copyright { display:block; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="topline">
+    <div class="container topline-inner">
+      <span>📍 Sukhupur-3, Siraha, Nepal</span>
+      <span>Call us: <a href="tel:+9779804758926">9804758926</a> &nbsp;|&nbsp; <a href="tel:+9779827706501">9827706501</a></span>
+    </div>
+  </div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Shiv Ganesh Ita Udhog home">
+        <span class="brand-mark">SG</span>
+        <span><span class="brand-name">SHIV GANESH<br>ITA UDHOG</span><span class="brand-sub">Quality brick manufacturing</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#products">Products</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Get in touch <span>↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Building trust, one brick at a time</div>
+          <h1>Strong bricks.<br><span>Stronger future.</span></h1>
+          <p>Welcome to SHIV GANESH ITA UDHOG — your local brick manufacturing business in Siraha, Nepal. We are committed to dependable service and quality-focused construction materials.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products">Explore products <span>→</span></a>
+            <a class="btn btn-outline" href="#contact">Contact us</a>
+          </div>
+          <div class="hero-note"><i></i><strong>SHIV GANESH ITA UDHOG</strong><span>·</span> Sukhupur-3, Siraha, Nepal</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-photo reveal">
+          <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1000&q=85" alt="Brickwork and construction materials">
+          <div class="photo-label">Made for lasting foundations</div>
+        </div>
+        <div class="about-copy reveal">
+          <div class="section-kicker">About our factory</div>
+          <h2>Built on quality.<br>Driven by trust.</h2>
+          <p>SHIV GANESH ITA UDHOG is a brick manufacturing business based in Sukhupur-3, Siraha, Nepal. Our focus is to serve builders, homeowners and local construction projects with quality-conscious bricks and reliable customer support.</p>
+          <div class="feature-list">
+            <div class="feature"><span class="feature-icon">✓</span><span>Quality-focused manufacturing</span></div>
+            <div class="feature"><span class="feature-icon">◆</span><span>Strong, durable brick options</span></div>
+            <div class="feature"><span class="feature-icon">↗</span><span>Reliable customer service</span></div>
+            <div class="feature"><span class="feature-icon">⌂</span><span>Commitment to better construction</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products" id="products">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Our products</div>
+          <h2>The right brick for<br>your next build.</h2>
+          <p>Explore our brick range and contact our team for current availability, specifications and pricing.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card reveal">
+            <img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&w=800&q=85" alt="Stacked red construction bricks">
+            <div class="product-body"><h3>Quality Bricks</h3><p>Brick options for a wide range of everyday construction needs.</p><a class="text-link inquiry-link" href="#contact" data-product="Quality Bricks">Contact for price →</a></div>
+          </article>
+          <article class="product-card reveal">
+            <img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=800&q=85" alt="Traditional brick wall detail">
+            <div class="product-body"><h3>Construction Bricks</h3><p>Practical brick choices for residential and building projects.</p><a class="text-link inquiry-link" href="#contact" data-product="Construction Bricks">Contact for price →</a></div>
+          </article>
+          <article class="product-card reveal">
+            <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=85" alt="Brick materials ready for construction">
+            <div class="product-body"><h3>Bulk Brick Orders</h3><p>Ask us about quantities and arrangements for larger projects.</p><a class="text-link inquiry-link" href="#contact" data-product="Bulk Brick Orders">Contact for price →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Factory gallery</div>
+          <h2>From production<br>to your project.</h2>
+          <p>Gallery images are illustrative placeholders for this first website draft. Replace them with photos of your actual factory, production and brick stock for an authentic business presentation.</p>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85" alt="Construction site"><div class="gallery-caption">Construction & industry</div></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&w=700&q=85" alt="Brick stack"><div class="gallery-caption">Brick collections</div></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=700&q=85" alt="Brickwork detail"><div class="gallery-caption">Brick quality</div></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=700&q=85" alt="Building materials"><div class="gallery-caption">Building materials</div></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=700&q=85" alt="Construction materials"><div class="gallery-caption">Ready for construction</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-band">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>Quality-focused</strong><span>Care and attention to the bricks we supply.</span></div>
+        <div class="trust-item"><strong>Local business</strong><span>Proudly based in Sukhupur-3, Siraha, Nepal.</span></div>
+        <div class="trust-item"><strong>Direct contact</strong><span>Talk to us about your brick requirements.</span></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Get in touch</div>
+          <h2>Let's build something<br>strong together.</h2>
+          <p>Contact SHIV GANESH ITA UDHOG for product information, availability and pricing.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Contact information</h3>
+            <div class="contact-row"><span class="contact-symbol">⌖</span><div><small>Business address</small><strong>Sukhupur-3, Siraha, Nepal</strong></div></div>
+            <div class="contact-row"><span class="contact-symbol">☎</span><div><small>Phone number 1</small><strong><a href="tel:+9779804758926">9804758926</a></strong></div></div>
+            <div class="contact-row"><span class="contact-symbol">☎</span><div><small>Phone number 2</small><strong><a href="tel:+9779827706501">9827706501</a></strong></div></div>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="tel:+9779804758926">Call now</a>
+              <a class="btn" style="background:#20bd66;color:#fff" href="https://wa.me/9779804758926?text=Namaste%2C%20I%20would%20like%20to%20ask%20about%20bricks." target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+          <form class="contact-form reveal" id="inquiryForm">
+            <h3>Send an inquiry</h3>
+            <p>Fill in your details. Your message will open in WhatsApp for sending.</p>
+            <div class="form-grid">
+              <div class="field"><label for="name">Your name</label><input id="name" name="name" required placeholder="Enter your name"></div>
+              <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" required type="tel" placeholder="Your phone number"></div>
+            </div>
+            <div class="field"><label for="interest">I'm interested in</label><select id="interest" name="interest"><option>Quality Bricks</option><option>Construction Bricks</option><option>Bulk Brick Orders</option><option>Other inquiry</option></select></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your requirements"></textarea></div>
+            <button class="btn btn-primary" type="submit">Send via WhatsApp&nbsp; →</button>
+          </form>
+        </div>
+        <div class="map-wrap reveal">
+          <iframe title="Map showing Sukhupur-3, Siraha, Nepal" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Sukhupur-3%2C%20Siraha%2C%20Nepal&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#home"><span class="brand-mark">SG</span><span><span class="brand-name">SHIV GANESH<br>ITA UDHOG</span><span class="brand-sub">Quality brick manufacturing</span></span></a>
+          <p>Strong & Quality Bricks for a Strong Future. Serving construction needs from Sukhupur-3, Siraha, Nepal.</p>
+          <div class="socials">
+            <a href="https://www.tiktok.com/@shiv_ganesh_ita_udhog?_r=1&_t=ZS-9B21BLhqaij" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+            <a href="https://www.facebook.com/profile.php?id=61596115194529" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            <a href="https://wa.me/9779804758926" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+          </div>
+        </div>
+        <div><h3>Quick links</h3><ul><li><a href="#about">About our factory</a></li><li><a href="#products">Our products</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact us</a></li></ul></div>
+        <div><h3>Reach us</h3><ul><li>Sukhupur-3, Siraha, Nepal</li><li><a href="tel:+9779804758926">9804758926</a></li><li><a href="tel:+9779827706501">9827706501</a></li><li><a href="mailto:">Contact by phone or WhatsApp</a></li></ul></div>
+      </div>
+      <div class="copyright"><span>© <span id="year"></span> SHIV GANESH ITA UDHOG. All rights reserved.</span><span>Strong & Quality Bricks for a Strong Future.</span></div>
+    </div>
+  </footer>
+  <a class="float-wa" href="https://wa.me/9779804758926?text=Namaste%2C%20I%20would%20like%20to%20know%20about%20your%20bricks." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">✆</a>
+</div>
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    const opened = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(opened));
+    menuToggle.textContent = opened ? '×' : '☰';
+  });
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.inquiry-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const interest = document.getElementById('interest');
+      interest.value = link.dataset.product;
+    });
+  });
+
+  document.getElementById('inquiryForm').addEventListener('submit', event => {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const interest = document.getElementById('interest').value;
+    const message = document.getElementById('message').value.trim();
+    const text = `Namaste SHIV GANESH ITA UDHOG,%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AInterested in: ${encodeURIComponent(interest)}%0AMessage: ${encodeURIComponent(message || 'Please share more details and price.')}`;
+    window.open(`https://wa.me/9779804758926?text=${text}`, '_blank', 'noopener');
+  });
+</script>
+</body>
+</html>
